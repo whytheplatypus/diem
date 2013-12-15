@@ -1,4 +1,4 @@
-<polymer-element name="todo-element"  constructor="TodoElement" attributes="item content complete expand">
+<polymer-element name="todo-element"  constructor="TodoElement" attributes="item content complete hide">
   <template>
     
     <style>
@@ -9,14 +9,13 @@
         <span pseudo = "complete" class="status" id="done"></span>
         <span pseudo = "item">{{item}}</span>
       </div>
-      <div pseudo = "content" id="conetent">
+      <div class="content">
         <content></content>
       </div>
     </div>
   </template>
   <script>
     Polymer('todo-element', {
-      expand: false,
       applyAuthorStyles: true,
       //resetStyleInheritance: true,
       created: function() { },
@@ -31,9 +30,10 @@
           self.complete = self.complete === 'complete'?'incomplete':'complete';
           console.log(self.complete);
         });
-        this.$.conetent.className = this.expand?"show":"hide";
+        self.hide = true;
+        // this.$.conetent.className = this.hide?"show":"hide";
         this.$.task.addEventListener("click", function(){
-          self.expand = !self.expand;
+          self.hide = !self.hide;
         });
       },
       leftView: function() { },
@@ -51,8 +51,8 @@
           case "complete":
             // this.$.done.className = this.complete?"done":"pending";
             break;
-          case "expand":
-            this.$.conetent.className = this.expand?"show":"hide";
+          case "hide":
+            // this.$.conetent.className = this.hide?"show":"hide";
             break;
           default:
             break;
