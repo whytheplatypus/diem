@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="bower_components/platform/platform.js"></script>
+	<script src="bower_components/polymer/polymer.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<style>
+		.done:before {
+			content: "\f046";
+			font-family: FontAwesome;
+
+			/* more styling for the icon, including color, font-size, positioning, etc. */
+		}
+		.pending:before {
+			content: "\f096";
+			font-family: FontAwesome;
+
+			/* more styling for the icon, including color, font-size, positioning, etc. */
+		}
+		.hide{
+			display:none;
+		}
+		
+	</style>
+	<link rel="import" href="elements/todo.html">
+</head>
+<body>
+	<todo-element id="test" item="test">
+		<content><h1>testfdas</h1></content>
+	</todo-element>
+	<todo-element id="test1" item="test2"></todo-element>
+	<todo-element id="test2" item="test3"></todo-element>
+	<todo-element id="test3" item="test4"></todo-element>
+</body>
+</html>

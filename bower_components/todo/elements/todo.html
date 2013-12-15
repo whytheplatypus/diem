@@ -1,0 +1,63 @@
+<polymer-element name="todo-element"  constructor="TodoElement" attributes="item content complete expand">
+  <template>
+    
+    <style>
+      @host { :scope {display: block;} }
+    </style>
+    <div>
+      <div id="task">
+        <span pseudo = "complete" class="status" id="done"></span>
+        <span pseudo = "item">{{item}}</span>
+      </div>
+      <div pseudo = "content" id="conetent">
+        <content></content>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer('todo-element', {
+      expand: false,
+      applyAuthorStyles: true,
+      //resetStyleInheritance: true,
+      created: function() { },
+      enteredView: function() {
+        console.log(this.innerHTML);
+        console.log(this);
+        var self = this;
+        // this.$.done.className = this.complete?"done":"pending";
+        this.$.done.addEventListener("click", function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          self.complete = self.complete === 'complete'?'incomplete':'complete';
+          console.log(self.complete);
+        });
+        this.$.conetent.className = this.expand?"show":"hide";
+        this.$.task.addEventListener("click", function(){
+          self.expand = !self.expand;
+        });
+      },
+      leftView: function() { },
+    
+      attributeChanged: function(attrName, oldVal, newVal) {
+        this.fire(attrName+":changed", {value: this.getAttribute(attrName)});
+        switch(attrName[0]){
+        
+          case "item":
+            break;
+        
+          case "content":
+            break;
+        
+          case "complete":
+            // this.$.done.className = this.complete?"done":"pending";
+            break;
+          case "expand":
+            this.$.conetent.className = this.expand?"show":"hide";
+            break;
+          default:
+            break;
+        }
+      }
+    });
+  </script>
+</polymer-element>
