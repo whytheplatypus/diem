@@ -12,7 +12,7 @@ angular.module('42dayApp')
         if(user.reset === undefined || user.reset < Date.now()){
           console.log("reset");
           $rootScope.user.$remove('tasks');
-          $rootScope.user.reset = moment({hour:7}).day(1).valueOf();
+          $rootScope.user.reset = moment({hour:7}).day(2).valueOf();
           $rootScope.user.$save('reset');
         }
         console.log("Initial data received!");
