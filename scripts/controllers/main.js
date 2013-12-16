@@ -9,7 +9,7 @@ angular.module('42dayApp')
 	  	// var ref = new Firebase("https://diem.firebaseio.com/"+user.id);
   		$rootScope.user = $firebase(ref).$child(user.id);
       $rootScope.user.$on("loaded", function(user) {
-        if(user.reset === undefined || user.reset < moment({hour: 7}).valueOf()){
+        if(user.reset === undefined || user.reset < Date.now()){
           console.log("reset");
           $rootScope.user.$remove('tasks');
           $rootScope.user.reset = moment({hour:7}).day(1).valueOf();
