@@ -11,32 +11,16 @@
     <meta name="viewport" content="width=device-width">
 
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <style>
-      todo-element[complete='complete'] .status:before {
-        content: "\f046";
-        font-family: FontAwesome;
-
-        /* more styling for the icon, including color, font-size, positioning, etc. */
-      }
-      todo-element[complete='incomplete'] .status:before {
-        content: "\f096";
-        font-family: FontAwesome;
-
-        /* more styling for the icon, including color, font-size, positioning, etc. */
-      }
-      todo-element[hide] .content{
-        display:none;
-      }
-      
-    </style>
     
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link rel="stylesheet" href="styles/f55987ac.main.css"/>
+        <!-- build:css({.tmp,app}) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
 
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-    <script type="text/javascript" src="https://login.persona.org/include.js"></script>
-    <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase-simple-login.js"></script>
+    <script type='text/javascript' src='https://login.persona.org/include.js'></script>
+    <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
     
     <script src="bower_components/moment/moment.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.2.9/marked.js"></script>
@@ -68,13 +52,39 @@
        ga('send', 'pageview');
     </script>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.5.0/angularfire.min.js"></script>
-        <script src="scripts/3233641e.plugins.js"></script>
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/sass-bootstrap/js/affix.js"></script>
+        <script src="bower_components/sass-bootstrap/js/alert.js"></script>
+        <script src="bower_components/sass-bootstrap/js/button.js"></script>
+        <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
+        <script src="bower_components/sass-bootstrap/js/transition.js"></script>
+        <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
+        <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
+        <script src="bower_components/sass-bootstrap/js/modal.js"></script>
+        <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
+        <script src="bower_components/sass-bootstrap/js/popover.js"></script>
+        <!-- endbuild -->
 
-        <script src="scripts/f16e0550.modules.js"></script>
+        <!-- build:js scripts/modules.js -->
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-webstorage/angular-webstorage.js"></script>
+        <!-- endbuild -->
 
-        <script src="scripts/6b238914.scripts.js"></script>
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/filters/markdown.js"></script>
+        <script src="scripts/directives/todoElement.js"></script>
+        <script src="scripts/factories/task.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/new.js"></script>
+        <!-- endbuild -->
 </body>
 </html>
