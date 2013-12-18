@@ -2,6 +2,29 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
+todo-element{
+    font-size:18px;
+    .item:hover{
+        cursor: pointer;
+    }
+}
+
+todo-element[complete='complete'] .status:before {
+    content: "\f046";
+    font-family: FontAwesome;
+
+    /* more styling for the icon, including color, font-size, positioning, etc. */
+}
+todo-element[complete='incomplete'] .status:before {
+    content: "\f096";
+    font-family: FontAwesome;
+
+    /* more styling for the icon, including color, font-size, positioning, etc. */
+}
+todo-element[hide] .content{
+    display:none;
+}
+
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;

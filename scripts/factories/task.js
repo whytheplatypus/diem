@@ -9,19 +9,13 @@ angular.module('42dayApp')
       this.complete = 'incomplete';
     };
     Task.prototype.save = function() {
-  //    var tasks = webStorage.get('tasks');
-    // if(!tasks){
-    //  tasks = [];
-    // }
-    // tasks.push(this.created);
-    // webStorage.add('tasks', tasks);
-    // webStorage.add(this.created, this);
+
     if(!$rootScope.user.tasks){
       $rootScope.user.tasks = {}
 
     }
     $rootScope.user.tasks[this.created] = this;
-    $rootScope.user.$save();
+    $rootScope.user.$save('tasks');
     
     };
 
