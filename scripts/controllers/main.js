@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('42dayApp')
-  .controller('MainCtrl', ['$scope', 'webStorage', 'Task', '$firebaseAuth', '$firebase', '$rootScope', function ($scope, webStorage, Task, $firebaseAuth, $firebase, $rootScope) {
+  .controller('MainCtrl', ['$scope', 'webStorage', 'Task', '$firebaseAuth', '$firebase', '$rootScope', '$location', function ($scope, webStorage, Task, $firebaseAuth, $firebase, $rootScope, $location) {
   	var ref = new Firebase('https://diem.firebaseio.com/');
   	$rootScope.$on("$firebaseAuth:login", function(e, user) {
   		console.log(user);
@@ -27,6 +27,12 @@ angular.module('42dayApp')
     
     $scope.login = function(){
     	$scope.auth.$login('persona');
+    }
+
+    $scope.edit = function(e, task){
+      e.preventDefault();
+      console.log("test");
+      $location.path( "/edit/"+task.created );
     }
  //    var tasks = webStorage.get('tasks');
  //    $scope.tasks = [];

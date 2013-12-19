@@ -18,6 +18,10 @@ angular.module('42dayApp', [
         templateUrl: 'views/new.html',
         controller: 'NewCtrl'
       })
+      .when('/edit/:task', {
+        templateUrl: 'views/new.html',
+        controller: 'EditCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

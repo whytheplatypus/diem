@@ -24,6 +24,16 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
   100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg) }
 }
 
+.todo-container{
+    a{
+        font-size:18px;
+    }
+    a:hover {
+        text-decoration:none;
+        
+    }
+}
+
 todo-element {
     font-size:18px;
     .item:hover{
