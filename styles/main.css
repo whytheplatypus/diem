@@ -4398,6 +4398,11 @@ th.hidden-lg, td.hidden-lg {
   100% {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
 
+.todo-container a {
+  font-size: 18px; }
+.todo-container a:hover {
+  text-decoration: none; }
+
 todo-element {
   font-size: 18px; }
   todo-element .item:hover {
