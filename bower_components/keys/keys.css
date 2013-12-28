@@ -1,0 +1,44 @@
+
+div.keyboard{
+    position:absolute;
+    top:0px;
+    height:0px;
+    width:100%;
+    z-index: 9999;
+    overflow-x:scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: height 0.25s ease-in-out;
+    -moz-transition: height 0.25s ease-in-out;
+    -o-transition: height 0.25s ease-in-out;
+    transition: height 0.25s ease-in-out;
+}
+
+div.keyboard.visible{
+    height:60px;
+}
+
+div.keyboard .key {
+    top: 18px;
+    position: relative;
+    opacity: 0.97;
+    background: #ffffff;
+    padding: 18px 27px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #000000;
+    font-size: 13px;
+    font-family: Georgia, serif;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor:pointer;
+    white-space: nowrap;
+}
+/*screws up iOS
+div#keyboard .key:hover {
+    background: #1fa5ff;
+    color: #ffffff;
+}*/
+div.keyboard .key:active {
+    background: #1f1dff;
+}

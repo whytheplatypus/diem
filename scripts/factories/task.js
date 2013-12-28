@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('42dayApp')
+angular.module('diem')
   .factory( 'Task', ['webStorage', '$firebase', '$rootScope', function(webStorage, $firebase, $rootScope){
     var Task = function(item, content){
       this.item = item;

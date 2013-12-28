@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('42dayApp')
+angular.module('diem')
   .controller('NewCtrl', ['$scope', 'webStorage', 'Task', '$location', function ($scope, webStorage, Task, $location) {
     	$scope.task = new Task();
     	$scope.save = function(){

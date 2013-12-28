@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('42dayApp')
+angular.module('diem')
   .controller('MainCtrl', ['$scope', 'webStorage', 'Task', '$firebaseAuth', '$firebase', '$rootScope', '$location', function ($scope, webStorage, Task, $firebaseAuth, $firebase, $rootScope, $location) {
   	var ref = new Firebase('https://diem.firebaseio.com/');
   	$rootScope.$on("$firebaseAuth:login", function(e, user) {
