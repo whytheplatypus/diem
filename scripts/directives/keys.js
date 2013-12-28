@@ -14,6 +14,16 @@ angular.module('diem').directive('keys', ['$rootScope', function($rootScope) {
 		     display: '<b>B</b>',
 		     behavior: function(){
 		     	element.trigger('input');
+		     },
+		    {value: '#<%=selection%>',
+		     display: '<h1>H1</h1>',
+		     behavior: function(){
+		     	element.trigger('input');
+		     },
+		    {value: '[<%=selection%>]()',
+		     display: 'link',
+		     behavior: function(){
+		     	element.trigger('input');
 		     }
 		    }], {debug:true});
     }
