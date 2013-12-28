@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('42dayApp', [
+
+angular.module('diem', [
   'ngCookies',
   'ngResource',
   'ngSanitize',

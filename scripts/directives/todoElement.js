@@ -1,4 +1,4 @@
-angular.module('42dayApp').directive('todoElement', ['$rootScope', function($rootScope) {
+angular.module('diem').directive('todoElement', ['$rootScope', function($rootScope) {
       return {
         restrict: 'E',
         require: '?ngModel',
