@@ -132,8 +132,8 @@
 
         txtarea.value = front+text+back;
         strPos = strPos + text.length;
-        txtarea.selectionStart = txtarea.selectionEnd;
-        // txtarea.selectionEnd = strPos;
+        txtarea.selectionStart = strPos
+        txtarea.selectionEnd = strPos;
         txtarea.focus();
         txtarea.scrollTop = scrollPos;
         return true;
