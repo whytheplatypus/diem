@@ -16,18 +16,43 @@ angular.module('diem').directive('keys', ['$rootScope', function($rootScope) {
 		     	element.trigger('input');
 		     }
 		 	},
+		    {value: '[<%=selection%>]()',
+		     display: 'link',
+		     behavior: function(){
+		     	element.trigger('input');
+		     }
+		    },
 		    {value: '#<%=selection%>',
 		     display: 'H1',
 		     behavior: function(){
 		     	element.trigger('input');
 		     }
 		    },
-		    {value: '[<%=selection%>]()',
-		     display: 'link',
+		    {value: '##<%=selection%>',
+		     display: 'H2',
 		     behavior: function(){
 		     	element.trigger('input');
 		     }
-		    }], {debug:true});
+		    },
+		    {value: '###<%=selection%>',
+		     display: 'H3',
+		     behavior: function(){
+		     	element.trigger('input');
+		     }
+		    },
+		    {value: '```\n<%=selection%>\n```',
+		     display: '<>',
+		     behavior: function(){
+		     	element.trigger('input');
+		     }
+		    },
+		    {value: '`<%=selection%>`',
+		     display: 'inline code',
+		     behavior: function(){
+		     	element.trigger('input');
+		     }
+		    },
+		    ], {debug:true});
     }
   };
 }]);
