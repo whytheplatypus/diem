@@ -1,5 +1,5 @@
-<h1>For Today</h1>
-<div class="spinner" ng-hide="user"></div>
-<div class="todo-container" ng-model="task" ng-repeat="task in user.tasks"><a href="#" ng-click="edit($event, task)" class="fa fa-pencil-square-o pull-right"></a><todo-element ng-model="task" complete="{{task.complete}}" item="{{task.item}}"><content><div ng-bind-html="task.content | markdown"></div></content></todo-element></div>
-<button class="btn btn-default" ng-click="login()" ng-hide="user">Login</button>
-<a class="btn btn-default" href="#/new">+</a>
+<h1 class="text-center">For Today</h1>
+<div class="spinner" ng-show="user && !user.tasks"></div>
+<div ng-show="user.tasks" class="todo-container" ng-model="task" ng-repeat="task in user.tasks"><a href="#" ng-click="edit($event, task)" class="fa fa-pencil-square-o pull-right"></a><todo-element ng-model="task" complete="{{task.complete}}" item="{{task.item}}"><content><div ng-bind-html="task.content | markdown"></div></content></todo-element></div>
+<button ng-hide="user" class="btn btn-primary btn-block btn-lg" ng-click="login()" ng-hide="user">Login</button>
+<a ng-show="user" class="btn btn-default" href="#/new">+</a>

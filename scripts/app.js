@@ -28,7 +28,9 @@ angular.module('diem', [
       });
   }).run([ '$firebaseAuth', '$firebase', '$rootScope', '$location', function ($firebaseAuth, $firebase, $rootScope, $location) {
     var ref = new Firebase('https://diem.firebaseio.com/');
+    console.log($firebaseAuth);
     $rootScope.$on("$firebaseAuth:login", function(e, user) {
+      console.log(arguments);
       console.log(user);
       console.log("User " + user.id + " successfully logged in!");
       // var ref = new Firebase("https://diem.firebaseio.com/"+user.id);
@@ -46,7 +48,10 @@ angular.module('diem', [
       // $scope.user.test = "hello world";
       // $scope.user.$save("test");
     });
-    
+    $rootScope.$on("$firebaseAuth:error", function(e){
+      console.log(e);
+      console.log(arguments);
+    });
     $rootScope.auth = $firebaseAuth(ref);
     console.log($rootScope.auth);
   }]);
