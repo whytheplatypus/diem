@@ -3,6 +3,12 @@
 angular.module('diem').filter('markdown', function() {
   return function(input) {
   	console.log("filtering ", input);
-    return marked(input);
+  	var result;
+  	try{
+  		result = marked(input);
+	} catch(e){
+		result = e;
+	}
+    return result
   };
 });
