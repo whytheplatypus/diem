@@ -5,7 +5,8 @@ angular.module('diem')
   	
     
     $scope.login = function(){
-    	$rootScope.auth.$login('persona');
+      console.log($rootScope.auth.$login);
+    	$rootScope.auth.$login('persona', {preferRedirect: true, rememberMe:true});
     }
 
     $scope.edit = function(e, task){
