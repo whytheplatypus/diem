@@ -4405,7 +4405,23 @@ th.hidden-lg, td.hidden-lg {
 
 todo-element {
   font-size: 18px; }
-  todo-element /shadow-deep/ .item:hover {
+  todo-element .item:hover {
+    cursor: pointer; }
+
+todo-element[complete='complete'] .status:before {
+  content: "\f046";
+  font-family: FontAwesome;
+  /* more styling for the icon, including color, font-size, positioning, etc. */ }
+
+todo-element[complete='incomplete'] .status:before {
+  content: "\f096";
+  font-family: FontAwesome;
+  /* more styling for the icon, including color, font-size, positioning, etc. */ }
+
+todo-element[hide] .content {
+  display: none; }
+
+todo-element /shadow-deep/ .item:hover {
     cursor: pointer; }
 
 todo-element[complete='complete'] /shadow-deep/ .status:before {
