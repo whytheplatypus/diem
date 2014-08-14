@@ -10,5 +10,7 @@
 		</todo-element>
 	</li>
 </ul>
-<button ng-hide="user" class="btn btn-primary btn-block btn-lg" ng-click="login()" ng-hide="user">Login</button>
+<button  class="btn btn-primary btn-block btn-lg" ng-click="login()" ng-hide="user">Login</button>
+<button  class="btn btn-primary btn-block btn-lg" ng-click="connectTrello()" ng-show="needs_trello && user">connectTrello</button>
+
 <a ng-show="user" class="btn btn-default btn-lg btn-block" href="#/new">+</a>
