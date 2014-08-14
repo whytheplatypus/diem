@@ -2,8 +2,22 @@
 
 angular.module('diem')
   .controller('MainCtrl', ['$scope', 'webStorage', 'Task', '$firebaseAuth', '$firebase', '$rootScope', '$location', function ($scope, webStorage, Task, $firebaseAuth, $firebase, $rootScope, $location) {
-  	
-    
+  	Trello.authorize({
+      interactive:false,
+      success: onAuthorize
+    });
+    Trello.authorize({
+        type: "popup",
+        success: onAuthorize
+    })
+
+
+    function onAuthorize(){
+      console.log(arguments);
+      Trello.members.get("me", {cards: "all"}, function(member){
+      });
+    }
+
     $scope.login = function(){
       console.log($rootScope.auth.$login);
     	$rootScope.auth.$login('persona', {preferRedirect: true, rememberMe:true});
