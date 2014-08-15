@@ -26,19 +26,23 @@ angular.module('diem', [
       .otherwise({
         redirectTo: '/'
       });
-  }).run([ '$firebaseAuth', '$firebase', '$rootScope', '$location', function ($firebaseAuth, $firebase, $rootScope, $location) {
+  }).run([ '$firebaseSimpleLogin', '$firebase', '$rootScope', '$location', function ($firebaseSimpleLogin, $firebase, $rootScope, $location) {
     var ref = new Firebase('https://diem.firebaseio.com/');
-    console.log($firebaseAuth);
-    $rootScope.$on("$firebaseAuth:login", function(e, user) {
+
+    console.log($firebaseSimpleLogin);
+    $rootScope.$on("$firebaseSimpleLogin:login", function(e, user) {
       console.log(arguments);
       console.log(user);
       console.log("User " + user.id + " successfully logged in!");
       // var ref = new Firebase("https://diem.firebaseio.com/"+user.id);
-      $rootScope.user = $firebase(ref).$child(user.id);
-      $rootScope.user.$on("loaded", function(user) {
+      var sync = $firebase(ref.child(user.id));
+      $rootScope.user = sync.$asObject();
+      $rootScope.user.$loaded(function(user) {
         if(user.reset === undefined || user.reset < Date.now()){
           console.log("reset");
-          $rootScope.user.$remove('tasks');
+          if($rootScope.user.tasks){
+            $rootScope.user.tasks.$remove();
+          }
           $rootScope.user.reset = moment({hour:7}).valueOf()+86400000;
           $rootScope.user.$save('reset');
         }
@@ -48,10 +52,10 @@ angular.module('diem', [
       // $scope.user.test = "hello world";
       // $scope.user.$save("test");
     });
-    $rootScope.$on("$firebaseAuth:error", function(e){
+    $rootScope.$on("$firebaseSimpleLogin:error", function(e){
       console.log(e);
       console.log(arguments);
     });
-    $rootScope.auth = $firebaseAuth(ref);
+    $rootScope.auth = $firebaseSimpleLogin(ref);
     console.log($rootScope.auth);
   }]);

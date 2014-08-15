@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('diem')
-  .controller('MainCtrl', ['$scope', 'webStorage', 'Task', '$firebaseAuth', '$firebase', '$rootScope', '$location', function ($scope, webStorage, Task, $firebaseAuth, $firebase, $rootScope, $location) {
+  .controller('MainCtrl', ['$scope', 'webStorage', 'Task', '$rootScope', '$location', function ($scope, webStorage, Task, $rootScope, $location) {
 
     $scope.needs_trello = true;
 
@@ -27,7 +27,7 @@ angular.module('diem')
     $scope.login = function(){
       console.log($rootScope.auth.$login);
 
-    	$rootScope.auth.$login('password', {preferRedirect: true, rememberMe:true});
+    	$rootScope.auth.$login('google');
     }
 
     $scope.edit = function(e, task){

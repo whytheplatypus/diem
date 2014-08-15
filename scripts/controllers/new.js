@@ -5,6 +5,6 @@ angular.module('diem')
     	$scope.task = new Task();
     	$scope.save = function(){
     		$scope.task.save();
-			$location.path( "/" );
+			  $location.path( "/" );
     	}
     }]);
