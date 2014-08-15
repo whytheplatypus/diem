@@ -27,7 +27,7 @@ angular.module('diem')
     $scope.login = function(){
       console.log($rootScope.auth.$login);
 
-    	$rootScope.auth.$login('google', {preferRedirect: true, rememberMe:true});
+    	$rootScope.auth.$login('password', {preferRedirect: true, rememberMe:true});
     }
 
     $scope.edit = function(e, task){
