@@ -1,9 +1,33 @@
+<style>
+
+	todo-element::shadow span.status:before {
+		content: "\f096";
+		font-family: FontAwesome;
+
+		/* more styling for the icon, including color, font-size, positioning, etc. */
+	}
+	todo-element[complete='complete']::shadow span.status:before {
+		content: "\f046";
+		font-family: FontAwesome;
+
+		/* more styling for the icon, including color, font-size, positioning, etc. */
+	}
+	todo-element[complete='complete']::shadow span.item{
+		text-decoration: line-through;
+		/* more styling for the icon, including color, font-size, positioning, etc. */
+	}
+	todo-element[hide]::shadow div.content{
+		display:none;
+	}
+
+</style>
 <h1 class="text-center">For Today</h1>
 <div class="spinner" ng-show="user && !user.tasks"></div>
 <ul class="list-group">
 	<li ng-show="user.tasks" class="todo-container list-group-item" ng-model="task" ng-repeat="task in user.tasks">
-		<a href="#" ng-click="edit($event, task)" class="fa fa-pencil-square-o pull-right"></a>
-		<todo-element ng-model="task" complete="{{task.complete}}" item="{{task.item}}">
+		<!-- {{task}} -->
+		<a href="#" ng-click="details($event, task)" class="fa fa-pencil-square-o pull-right"></a>
+		<todo-element ng-model="task" complete={{task.complete}} item="{{task.item}}" ng-click="toggleComplete(task, $event)">
 			<content>
 				<div ng-bind-html="task.content | markdown"></div>
 			</content>
@@ -13,4 +37,4 @@
 <button  class="btn btn-primary btn-block btn-lg" ng-click="login()" ng-hide="user">Login</button>
 <button  class="btn btn-primary btn-block btn-lg" ng-click="connectTrello()" ng-show="needs_trello && user">connectTrello</button>
 
-<a ng-show="user" class="btn btn-default btn-lg btn-block" href="#/new">+</a>
+<!-- <a ng-show="user" class="btn btn-default btn-lg btn-block" href="#/new">+</a> -->

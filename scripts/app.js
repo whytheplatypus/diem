@@ -23,13 +23,15 @@ angular.module('diem', [
         templateUrl: 'views/new.html',
         controller: 'EditCtrl'
       })
+      .when('/trello', {
+        templateUrl: 'views/trello.html',
+        controller: 'TrelloCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
   }).run([ '$firebaseSimpleLogin', '$firebase', '$rootScope', '$location', function ($firebaseSimpleLogin, $firebase, $rootScope, $location) {
     var ref = new Firebase('https://diem.firebaseio.com/');
-
-    console.log($firebaseSimpleLogin);
     $rootScope.$on("$firebaseSimpleLogin:login", function(e, user) {
       console.log(arguments);
       console.log(user);
@@ -39,18 +41,15 @@ angular.module('diem', [
       $rootScope.user = sync.$asObject();
       $rootScope.user.$loaded(function(user) {
         if(user.reset === undefined || user.reset < Date.now()){
-          console.log("reset");
           if($rootScope.user.tasks){
-            $rootScope.user.tasks.$remove();
+            $rootScope.user.tasks = {};
+            $rootScope.user.$save('tasks');
           }
           $rootScope.user.reset = moment({hour:7}).valueOf()+86400000;
           $rootScope.user.$save('reset');
         }
         console.log("Initial data received!");
       });
-      // console.log($scope.user);
-      // $scope.user.test = "hello world";
-      // $scope.user.$save("test");
     });
     $rootScope.$on("$firebaseSimpleLogin:error", function(e){
       console.log(e);

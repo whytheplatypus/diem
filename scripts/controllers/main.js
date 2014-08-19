@@ -1,33 +1,18 @@
 'use strict';
-
 angular.module('diem')
   .controller('MainCtrl', ['$scope', 'webStorage', 'Task', '$rootScope', '$location', function ($scope, webStorage, Task, $rootScope, $location) {
-
-    $scope.needs_trello = true;
-
-    Trello.authorize({
-      interactive:false,
-      success: onAuthorize
-    });
-    function onAuthorize(){
-      $scope.needs_trello = false;
-      console.log(arguments);
-      Trello.members.get("me", {cards: "all"}, function(member){
-        console.log(member);
-      });
-    }
-
-    $scope.connectTrello = function(){
-      Trello.authorize({
-          type: "popup",
-          success: onAuthorize
-      })
-    }
 
     $scope.login = function(){
       console.log($rootScope.auth.$login);
 
     	$rootScope.auth.$login('google');
+    }
+
+    $scope.toggleComplete = function(task, event){
+      event.preventDefault();
+      // console.log(task);
+      task.complete = task.complete=="complete"?"incomplete":"complete";
+      $rootScope.user.$save('tasks');
     }
 
     $scope.edit = function(e, task){

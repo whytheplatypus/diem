@@ -10,13 +10,13 @@ angular.module('diem')
     };
     Task.prototype.save = function() {
 
-    if(!$rootScope.user.tasks){
-      $rootScope.user.tasks = {}
+      if(!$rootScope.user.tasks){
+        $rootScope.user.tasks = {}
 
-    }
-    $rootScope.user.tasks[this.created] = this;
-    $rootScope.user.$save('tasks');
-    
+      }
+      $rootScope.user.tasks[this.created] = this;
+      $rootScope.user.$save('tasks');
+
     };
 
     Task.forget = function() {

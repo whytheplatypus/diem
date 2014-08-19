@@ -28,7 +28,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.2.9/marked.js"></script>
     <script src="bower_components/todo/bower_components/platform/platform.js"></script>
     <script src="bower_components/todo/bower_components/polymer/polymer.js"></script>
-    <link rel="import" href="bower_components/todo/elements/todo.html">
+    <link rel="import" href="bower_components/todo/todo.html">
 </head>
   <body ng-app="diem">
     <!--[if lt IE 7]>
@@ -86,12 +86,13 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/filters/markdown.js"></script>
-        <script src="scripts/directives/todoElement.js"></script>
+        <!-- <script src="scripts/directives/todoElement.js"></script> -->
         <script src="scripts/directives/keys.js"></script>
         <script src="scripts/factories/task.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/new.js"></script>
         <script src="scripts/controllers/edit.js"></script>
+        <script src="scripts/controllers/trello.js"></script>
         <!-- endbuild -->
 </body>
 </html>
