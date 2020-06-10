@@ -3,7 +3,7 @@ diem
 
 A daily todo list.
 
-![example]([Imgur](https://i.imgur.com/20kSi94.gif)
+![example](https://i.imgur.com/20kSi94.gif)
 
 Install
 ---
