@@ -22,6 +22,33 @@ fn usage() {
     diem [{add | complete | remove} <task description>]");
 }
 
+trait Layered<T> {
+
+    fn from_default() -> Option<T>;
+
+    fn from_environment() -> Option<T>;
+
+    fn from_all() -> Option<T> {
+        Self::from_environment().or(Self::from_default())
+    }
+}
+
+type LogFile = PathBuf;
+
+impl Layered<LogFile> for LogFile {
+    fn from_default() -> Option<LogFile> {
+        Some(dirs::home_dir().unwrap().join(TODO_LOG))
+    }
+
+    fn from_environment() -> Option<LogFile> {
+        let key = "DIEM_LOG_FILE";
+        match env::var(key) {
+            Ok(val) =>  Some(PathBuf::from(val)),
+            Err(_) => None,
+        }
+    }
+}
+
 struct Config {
     log_file: PathBuf,
 }
@@ -29,7 +56,7 @@ struct Config {
 impl Config {
     pub fn default() -> Config {
         Config{
-           log_file: dirs::home_dir().unwrap().join(TODO_LOG)
+           log_file: LogFile::from_all().unwrap(),
         }
     }
 }
